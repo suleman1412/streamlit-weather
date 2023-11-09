@@ -1,8 +1,7 @@
 import requests
 import pandas as pd
 import streamlit as st
-import json
-import pymysql
+
 
 
 def lookup_coord(city_name):
@@ -40,40 +39,6 @@ def sort_data(weather_data):
     # push_data(extracted_data)
     return extracted_data
 
-
-def push_data(extracted_data):
-    
-    """Function to create a connection with MySQL database and to push the data into local MySQL database"""
-    
-    pwd = st.secrets['password']
-    try:
-        conn = pymysql.connect(host='', user='', password='', database='')
-    except Exception as e:
-            print("Could not connect to the database.")
-            exit()
-
-    mycursor = conn.cursor()
-    insert_stmt = """INSERT INTO weather_data 
-                    (
-                        city, 
-                        country,
-                        observation_date, 
-                        observation_time, 
-                        actual_temp, 
-                        feels_like_temp, 
-                        min_temp,
-                        max_temp,
-                        pressure,
-                        sea_level,
-                        grnd_level,
-                        humidity,
-                        weather_status
-                    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-    for row in extracted_data:
-        mycursor.execute(insert_stmt,row)
-
-    conn.commit()
-    mycursor.close()
 
 
 def authenticate(lat,lon):
