@@ -24,3 +24,8 @@ cd into the directory and run the following command in your terminal
 `streamlit run main.py`
 
  Now your app is up and running
+
+![alt text](https://github.com/suleman1412/streamlit-weather/blob/main/photos/1.png?raw=true)
+![alt text](https://github.com/suleman1412/streamlit-weather/blob/main/photos/2.png?raw=true)
+![alt text](https://github.com/suleman1412/streamlit-weather/blob/main/photos/3.png?raw=true)
+![alt text](https://github.com/suleman1412/streamlit-weather/blob/main/photos/4.png?raw=true)
